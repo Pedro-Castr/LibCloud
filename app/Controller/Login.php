@@ -49,7 +49,7 @@ class Login extends ControllerMain
                     'inputs' => ["email" => $post['email']]
                 ]);
             }
-            
+
             // validar o status do usuário            
             if ($aUser['statusRegistro'] == 2 ) {
                 return Redirect::page("login", [
@@ -59,7 +59,7 @@ class Login extends ControllerMain
             }
 
             //  Criar flag's de usuário logado no sistema
-            
+
             Session::set("userId"   , $aUser['id']);
             Session::set("userNome" , $aUser['nome']);
             Session::set("userEmail", $aUser['email']);
@@ -298,8 +298,8 @@ class Login extends ControllerMain
     {
         $dados = [
             "nivel"             => 1,
-            "nome"              => "Aldecir Fonseca",
-            "email"             => "aldecir.fonseca@santamarcelina.edu.br",
+            "nome"              => "Pedro Castro",
+            "email"             => "vieiracastropedro7@gmail.com",
             "senha"             => password_hash("fasm@2025", PASSWORD_DEFAULT),
             "statusRegistro"    => 1
         ];

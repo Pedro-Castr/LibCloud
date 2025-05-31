@@ -33,9 +33,9 @@ $aStatus = ["1" => "Ativo", "2" => "Inativo", "3" => "Bloqueado"];
                         <td><?= $aNivel[$value['nivel']] ?></td>                        
                         <td><?= $aStatus[$value['statusRegistro']] ?></td>                        
                         <td>
-                            <a href="<?= baseUrl() ?>Usuario/form/view/<?= $value['id'] ?>" title="Visualizar">Visualizar</a>
-                            <a href="<?= baseUrl() ?>Usuario/form/update/<?= $value['id'] ?>" title="Alterar">Alterar</a>
-                            <a href="<?= baseUrl() ?>Usuario/form/delete/<?= $value['id'] ?>" title="Excluir">Excluir</a>
+                            <a href="<?= baseUrl() ?>Usuario/form/view/<?= $value['id'] ?>" title="Visualizar" class="btn btn-sm btn-primary text-white">Visualizar</a>
+                            <a href="<?= baseUrl() ?>Usuario/form/update/<?= $value['id'] ?>" title="Alterar" class="btn btn-sm btn-warning text-white">Alterar</a>
+                            <a href="<?= baseUrl() ?>Usuario/form/delete/<?= $value['id'] ?>" title="Excluir" class="btn btn-sm btn-danger">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

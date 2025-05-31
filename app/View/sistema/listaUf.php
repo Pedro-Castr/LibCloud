@@ -20,9 +20,9 @@
                         <td><?= $value['sigla'] ?></td>
                         <td><?= $value['descricao'] ?></td>
                         <td>
-                            <a href="<?= baseUrl() ?>Uf/form/view/<?= $value['id'] ?>" title="Visualizar">Visualizar</a>
-                            <a href="<?= baseUrl() ?>Uf/form/update/<?= $value['id'] ?>" title="Alterar">Alterar</a>
-                            <a href="<?= baseUrl() ?>Uf/form/delete/<?= $value['id'] ?>" title="Excluir">Excluir</a>
+                            <a href="<?= baseUrl() ?>Uf/form/view/<?= $value['id'] ?>" title="Visualizar" class="btn btn-sm btn-primary text-white">Visualizar</a>
+                            <a href="<?= baseUrl() ?>Uf/form/update/<?= $value['id'] ?>" title="Alterar" class="btn btn-sm btn-warning text-white">Alterar</a>
+                            <a href="<?= baseUrl() ?>Uf/form/delete/<?= $value['id'] ?>" title="Excluir" class="btn btn-sm btn-danger">Excluir</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
