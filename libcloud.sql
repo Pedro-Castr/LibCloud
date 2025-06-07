@@ -1,11 +1,13 @@
+
 -- Tabela de Livros
 CREATE TABLE livros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
+    foto VARCHAR(250) NOT NULL,
     isbn VARCHAR(20) UNIQUE NOT NULL,
-    editora VARCHAR(100),
-    edicao VARCHAR(20),
-    ano_publicacao YEAR
+    editora VARCHAR(100) NOT NULL,
+    edicao VARCHAR(20) NOT NULL,
+    ano_publicacao VARCHAR(4)
 );
 
 -- Tabela de Autores
@@ -34,14 +36,17 @@ CREATE TABLE exemplares (
 );
 
 -- Tabela de Usuários
-CREATE TABLE usuarios (
+CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_completo VARCHAR(255) NOT NULL,
+    nome VARCHAR(250) NOT NULL,
+    senha VARCHAR(250) NOT NULL,
     cpf VARCHAR(14) UNIQUE NOT NULL,
-    email_institucional VARCHAR(255) UNIQUE NOT NULL,
-    matricula_ou_registro VARCHAR(50) NOT NULL,
+    email VARCHAR(250) UNIQUE NOT NULL,
+    matricula VARCHAR(50) NOT NULL,
     tipo ENUM('aluno', 'professor') NOT NULL,
-    curso_ou_departamento VARCHAR(100)
+    nivel INT NOT NULL DEFAULT '2' COMMENT '1=Super Administrador; 11=Administador; 21=Usuário',
+    curso VARCHAR(100),
+    statusRegistro INT NOT NULL DEFAULT '1' COMMENT '1=Ativo; 2=Inativo; 3=Bloqueado;'
 );
 
 -- Tabela de Empréstimos
@@ -53,6 +58,6 @@ CREATE TABLE emprestimos (
     data_prevista_devolucao DATE NOT NULL,
     data_devolucao DATE,
     multa DECIMAL(5,2) DEFAULT 0.00,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id),
     FOREIGN KEY (exemplar_id) REFERENCES exemplares(id)
 );
