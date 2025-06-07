@@ -31,7 +31,7 @@ class Livro extends ControllerMain
 
     public function form($action, $id)
     {
-        $CidadeModel = new CidadeModel();
+        $LivroModel = new LivroModel();
 
         $dados = [
             "data" => $this->model->getById($id),

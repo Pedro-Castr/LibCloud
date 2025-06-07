@@ -35,7 +35,7 @@ use Core\Library\Session;
                             <a href="#" class="nav-link">Quem Somos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Nossos Livros</a>
+                            <a href="<?= baseUrl() ?>Livro" class="nav-link">Cadastrar Um Livro</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Sobre</a>
