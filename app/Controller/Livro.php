@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 
+use App\Model\LivroModel;
 use Core\Library\ControllerMain;
-use Core\Library\Files;
 use Core\Library\Redirect;
-use Core\Library\Session;
+use Core\Library\Files;
 use Core\Library\Validator;
 
-class Uf extends ControllerMain
+class Livro extends ControllerMain
 {
     protected $files;
 
@@ -26,12 +26,17 @@ class Uf extends ControllerMain
      */
     public function index()
     {
-        return $this->loadView("sistema\listaUf", $this->model->lista("sigla"));
+        return $this->loadView("sistema\listaLivro", $this->model->lista("id"));
     }
 
     public function form($action, $id)
     {
-        return $this->loadView("sistema/formUf", $this->model->getById($id));
+        $CidadeModel = new CidadeModel();
+
+        $dados = [
+            "data" => $this->model->getById($id),
+        ];
+        return $this->loadView("sistema/formLivro", $dados);
     }
 
     /**
@@ -43,28 +48,25 @@ class Uf extends ControllerMain
     {
         $post = $this->request->getPost();
 
-        if (Validator::make($post, $this->model->validationRules)) {
+         if (Validator::make($post, $this->model->validationRules)) {
             return Redirect::page($this->controller . "/form/insert/0");
         } else {
 
-            // faz upload da imagem
-
-            if (!empty($_FILES['bandeira']['name'])) {
+             if (!empty($_FILES['foto']['name'])) {
                 
                 // Faz upload da imagem
-                $nomeRetornado = $this->files->upload($_FILES, 'uf');
+                $nomeRetornado = $this->files->upload($_FILES, 'livros');
 
                 // se for boolean, significa que o upload falhou
                 if (is_bool($nomeRetornado)) {
                     Session::set('inputs', $post);
                     return Redirect::page($this->controller . "/form/insert/" . $post['id']);
                 } else {
-                    $post['bandeira'] = $nomeRetornado[0];
+                    $post['foto'] = $nomeRetornado[0];
                 }
             } else {
-                $post['bandeira'] = $post['nomeImagem'];
+                $post['foto'] = $post['nomeImagem'];
             }
-            //
 
             if ($this->model->insert($post)) {
                 return Redirect::page($this->controller, ["msgSucesso" => "Registro inserido com sucesso."]);
@@ -83,34 +85,34 @@ class Uf extends ControllerMain
     {
         $post = $this->request->getPost();
 
-        if (Validator::make($post, $this->model->validationRules)) {
+         if (Validator::make($post, $this->model->validationRules)) {
             return Redirect::page($this->controller . "/form/update/" . $post['id']);    // error
         } else {
 
-            if (!empty($_FILES['bandeira']['name'])) {
+            if (!empty($_FILES['foto']['name'])) {
 
                 // Faz uploado da imagem
-                $nomeRetornado = $this->files->upload($_FILES, 'uf');
+                $nomeRetornado = $this->files->upload($_FILES, 'livros');
 
                 // se for boolean, significa que o upload falhou
                 if (is_bool($nomeRetornado)) {
                     Session::set( 'inputs', $post);
                     return Redirect::page($this->controller . "/form/update/" . $post['id']);
                 } else {
-                    $post['bandeira'] = $nomeRetornado[0];
+                    $post['foto'] = $nomeRetornado[0];
                 }
                 
                 if (isset($post['nomeImagem'])) {
-                    $this->files->delete($post['nomeImagem'], 'uf');
+                    $this->files->delete($post['nomeImagem'], 'livros');
                 }
                 
             } else {
-                $post['bandeira'] = $post['nomeImagem'];
+                $post['foto'] = $post['nomeImagem'];
             }
 
-            //
+            unset($post['nomeImagem']);
 
-            if ($this->model->update($post)) {
+             if ($this->model->update($post)) {
                 return Redirect::page($this->controller, ["msgSucesso" => "Registro alterado com sucesso."]);
             } else {
                 return Redirect::page($this->controller . "/form/update/" . $post['id']);
@@ -128,7 +130,7 @@ class Uf extends ControllerMain
         $post = $this->request->getPost();
 
         if ($this->model->delete($post)) {
-            $this->files->delete($post['nomeImagem'], "uf");
+            $this->files->delete($post['nomeImagem'], "livros");
             return Redirect::page($this->controller, ["msgSucesso" => "Registro Excluído com sucesso."]);
         } else {
             return Redirect::page($this->controller);
