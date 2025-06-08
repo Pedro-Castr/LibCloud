@@ -1,3 +1,8 @@
+<?php
+
+use Core\Library\Session;
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,8 +18,7 @@
     <link href="<?= baseUrl() ?>assets/css/listaCurriculo.css" rel="stylesheet">
 </head>
 <body>
-
-    <?= formTitulo("📄 Lista De Livros", true) ?>
+    <?= formTitulo("📄 Lista De Livros", (int)Session::get("userNivel") <= 20 ? true : false) ?>
 
     <div class="container my-5">
         <div class="row row-cols-1 g-4">

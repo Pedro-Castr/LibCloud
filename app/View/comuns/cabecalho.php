@@ -35,7 +35,7 @@ use Core\Library\Session;
                             <a href="#" class="nav-link">Quem Somos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= baseUrl() ?>Livro" class="nav-link">Cadastrar Um Livro</a>
+                            <a href="<?= baseUrl() ?>Livro/index" class="nav-link">Blibioteca Online</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Sobre</a>
@@ -48,9 +48,14 @@ use Core\Library\Session;
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <?php if ((int)Session::get("userNivel") <= 20): ?>
-                                        <li><a class="dropdown-item" href="<?= baseUrl() ?>usuario">Usuário</a></li>
+                                        <li><a class="dropdown-item" href="<?= baseUrl() ?>usuario">
+                                            Usuário</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= baseUrl() ?>Livro" class="nav-link">Cadastrar Um Livro</a>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
                                     <?php endif; ?>
-                                    <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="<?= baseUrl() ?>Usuario/formTrocarSenha">Trocar a Senha</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="<?= baseUrl() ?>login/signOut">Sair</a></li>
