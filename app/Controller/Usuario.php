@@ -61,6 +61,10 @@ class Usuario extends ControllerMain
         $post = $this->request->getPost();
         $lError = false;
 
+        if (!empty($post['senha'])) {
+            $post['senha'] = password_hash(trim($post['senha']), PASSWORD_DEFAULT);
+        }
+
         if (empty($post['senha'])) {
             $lError = true;
             $errors['senha'] = "O campo <b>Senha</b> deve ser preenchido.";

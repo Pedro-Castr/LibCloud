@@ -47,15 +47,13 @@ use Core\Library\Session;
                                     Usuário
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="<?= baseUrl() ?>login/signOut">Sair</a></li>
                                     <?php if ((int)Session::get("userNivel") <= 20): ?>
                                         <li><a class="dropdown-item" href="<?= baseUrl() ?>usuario">Usuário</a></li>
                                     <?php endif; ?>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="<?= baseUrl() ?>Usuario/formTrocarSenha">Trocar a Senha</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="<?= baseUrl() ?>uf">UF's</a></li>
-                                    <li><a class="dropdown-item" href="<?= baseUrl() ?>cidade">Cidade</a></li>
+                                    <li><a class="dropdown-item" href="<?= baseUrl() ?>login/signOut">Sair</a></li>
                                 </ul>
                             </li>
                         <?php else: ?>

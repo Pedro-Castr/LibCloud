@@ -43,7 +43,7 @@ CREATE TABLE usuario (
     cpf VARCHAR(14) UNIQUE NOT NULL,
     email VARCHAR(250) UNIQUE NOT NULL,
     matricula VARCHAR(50) NOT NULL,
-    tipo ENUM('aluno', 'professor') NOT NULL,
+    tipo INT NOT NULL DEFAULT '1' COMMENT '1=Aluno; 2=Professor',
     nivel INT NOT NULL DEFAULT '2' COMMENT '1=Super Administrador; 11=Administador; 21=Usuário',
     curso VARCHAR(100),
     statusRegistro INT NOT NULL DEFAULT '1' COMMENT '1=Ativo; 2=Inativo; 3=Bloqueado;'

@@ -9,9 +9,15 @@
     <div class="row m-2">
 
         <div class="mb-3 col-8">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Usuário" maxlength="60" value="<?= setValor('nome') ?>" required autofocus>
+            <label for="nome" class="form-label">Nome Completo</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Usuário" maxlength="250" value="<?= setValor('nome') ?>" required autofocus>
             <?= setMsgFilderError('nome') ?>
+        </div>
+
+        <div class="mb-3 col-8">
+            <label for="cpf" class="form-label">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF do Usuário" maxlength="250" value="<?= setValor('cpf') ?>" required autofocus>
+            <?= setMsgFilderError('cpf') ?>
         </div>
 
         <div class="mb-3 col-4">
@@ -26,9 +32,31 @@
         </div>
 
         <div class="mb-3 col-8">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label">Email Institucional</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Email do Usuário" maxlength="150" value="<?= setValor('email') ?>" required>
             <?= setMsgFilderError('email') ?>
+        </div>
+
+        <div class="mb-3 col-8">
+            <label for="curso" class="form-label">Curso ou Departamento</label>
+            <input type="curso" class="form-control" id="curso" name="curso" placeholder="curso do Usuário" maxlength="150" value="<?= setValor('curso') ?>" required>
+            <?= setMsgFilderError('curso') ?>
+        </div>
+
+        <div class="mb-3 col-8">
+            <label for="matricula" class="form-label">Matricula</label>
+            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="matricula do Usuário" maxlength="50" value="<?= setValor('matricula') ?>" required autofocus>
+            <?= setMsgFilderError('matricula') ?>
+        </div>
+
+        <div class="mb-3 col-4">
+            <label for="tipo" class="form-label">Tipo</label>
+            <select class="form-select" name="tipo" id="tipo" aria-label="Large select tipo" required>
+                <option value="0" <?= (setValor('tipo') == ""  ? 'selected': "") ?>>...</option>
+                <option value="1" <?= (setValor('tipo') == "1" ? 'selected': "") ?>>Aluno</option>
+                <option value="2" <?= (setValor('tipo') == "2" ? 'selected': "") ?>>Professor</option>
+            </select>
+            <?= setMsgFilderError('tipo') ?>
         </div>
 
         <div class="mb-3 col-4">
