@@ -29,6 +29,15 @@ use Core\Library\Session;
                             <h4 class="card-title mb-3">
                                 <?= htmlspecialchars($value['titulo']) ?>, <?= htmlspecialchars($value['isbn']) ?>
                             </h4>
+                            <h4 class="card-title mb-3">
+                                <?= htmlspecialchars($value['numeroPatrimonio']) ?> 
+                            </h4>
+                            <h4 class="card-title mb-3">
+                                <?= htmlspecialchars($value['estadoConservacao'] == 1 ? 'Novo' : ($value['estadoConservacao'] == 2 ? 'Semi Novo' : 'Velho') ) ?> 
+                            </h4>
+                             <h4 class="card-title mb-3">
+                                <?= htmlspecialchars($value['localizacaoEstante']) ?> 
+                            </h4>
                             <h6 class="text-muted mb-3"><?= htmlspecialchars($value['editora']) ?> - EDIÇÃO: <?= htmlspecialchars($value['edicao']) ?></h6>
 
                             <div class="row">

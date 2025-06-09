@@ -54,6 +54,28 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="numeroPatrimonio" class="form-label">Numero Patrimonio</label>
+                        <input type="text" class="form-control" id="numeroPatrimonio" name="numeroPatrimonio" maxlength="10" value="<?= setValor("numeroPatrimonio") ?>" required>
+                        <?= setMsgFilderError("numeroPatrimonio") ?>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="estadoConservacao" class="form-label">Estado de Conservação</label>
+                        <select class="form-select" name="estadoConservacao" id="estadoConservacao" aria-label="Large select estadoConservacao" required>
+                            <option value="0" <?= (setValor('estadoConservacao') == "1"  ? 'selected': "") ?>>Novo</option>
+                            <option value="1" <?= (setValor('estadoConservacao') == "2" ? 'selected': "") ?>>Semi Novo</option>
+                            <option value="2" <?= (setValor('estadoConservacao') == "3" ? 'selected': "") ?>>Velho</option>
+                        </select>
+                        <?= setMsgFilderError('estadoConservacao') ?>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="localizacaoEstante" class="form-label">Localização Estante</label>
+                        <input type="text" class="form-control" id="localizacaoEstante" name="localizacaoEstante" maxlength="100" value="<?= setValor("localizacaoEstante") ?>" required>
+                        <?= setMsgFilderError("localizacaoEstante") ?>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="row">
                         <?php if (in_array($this->request->getAction(), ['insert', 'update'])): ?>
                             <div class="mb-3 col-12">
