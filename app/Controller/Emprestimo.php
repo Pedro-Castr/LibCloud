@@ -59,20 +59,35 @@ class Emprestimo extends ControllerMain
     $prazo = $tipo == 1 ? 7 : 15;
 
     // Verificar empréstimos em aberto
+    $this->model->db->dbClear();
     $lista = $this->model->db->table("emprestimos")
-    ->where("usuario_id", "=", $post['usuario_id'])
+    ->where("usuario_id", (int)$post['usuario_id'] , "=")
     ->select("*")
     ->findAll();
 
     $emAberto = 0;
+    $livroDuplicado = false;
+
     foreach ($lista as $linha) {
-        if (empty($linha["data_devolucao"]) || $linha["data_devolucao"] == "0000-00-00") {
+    
+        $dataDev = $linha["data_devolucao"];
+        
+        
+        $estaEmAberto = is_null($dataDev) || $dataDev === '0000-00-00' || $dataDev === '';
+
+        if ($estaEmAberto) {
             $emAberto++;
+
+            if ((int)$linha["livro_id"] === (int)$post["livro_id"]) {
+                $livroDuplicado = true;
+            }
         }
     }
+  
 
-
-
+    if ($livroDuplicado) {
+    return Redirect::page("Livro/form/view/" . $post["livro_id"], ["msgErro" => "Você já possui esse livro emprestado e ainda não devolveu."]);
+    }
 
     if ($emAberto >= $limite) {
         return Redirect::page("Livro/form/view/" . $post["livro_id"], ["msgErro" => "Limite de empréstimos excedido."]);
