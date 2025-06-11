@@ -42,10 +42,15 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-1 mb-1">
                         <label for="editora" class="form-label">Editora</label>
                         <input type="text" class="form-control" id="editora" name="editora" maxlength="20" value="<?= setValor("editora") ?>" required>
                         <?= setMsgFilderError("editora") ?>
+                    </div>
+                    <div class="col-md-2 mb-2">
+                        <label for="autor" class="form-label">Autor</label>
+                        <input type="text" class="form-control" id="autor" name="autor" maxlength="20" value="<?= setValor("autor") ?>" required>
+                        <?= setMsgFilderError("autor") ?>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="edicao" class="form-label">Edição</label>

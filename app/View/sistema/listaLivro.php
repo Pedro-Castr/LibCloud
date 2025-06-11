@@ -27,18 +27,22 @@ use Core\Library\Session;
                     <div class="card shadow-lg border-0">
                         <div class="card-body">
                             <h4 class="card-title mb-3">
-                                <?= htmlspecialchars($value['titulo']) ?>, <?= htmlspecialchars($value['isbn']) ?>
+                               Titulo:  <?= htmlspecialchars($value['titulo']) ?> /
+                               ISBN: <?= htmlspecialchars($value['isbn']) ?>
                             </h4>
                             <h4 class="card-title mb-3">
-                                <?= htmlspecialchars($value['numeroPatrimonio']) ?> 
+                               Numero Patrimonio: <?= htmlspecialchars($value['numeroPatrimonio']) ?> 
                             </h4>
                             <h4 class="card-title mb-3">
-                                <?= htmlspecialchars($value['estadoConservacao'] == 1 ? 'Novo' : ($value['estadoConservacao'] == 2 ? 'Semi Novo' : 'Velho') ) ?> 
+                               Autor(a): <?= htmlspecialchars($value['autor']) ?> 
+                            </h4>
+                            <h4 class="card-title mb-3">
+                               Estado de Conservação:  <?= htmlspecialchars($value['estadoConservacao'] == 1 ? 'Novo' : ($value['estadoConservacao'] == 2 ? 'Semi Novo' : 'Velho') ) ?> 
                             </h4>
                              <h4 class="card-title mb-3">
-                                <?= htmlspecialchars($value['localizacaoEstante']) ?> 
+                               Localização na biblioteca:  <?= htmlspecialchars($value['localizacaoEstante']) ?> 
                             </h4>
-                            <h6 class="text-muted mb-3"><?= htmlspecialchars($value['editora']) ?> - EDIÇÃO: <?= htmlspecialchars($value['edicao']) ?></h6>
+                            <h6 class="text-muted mb-3"> Editora: <?= htmlspecialchars($value['editora']) ?> - EDIÇÃO: <?= htmlspecialchars($value['edicao']) ?></h6>
 
                             <div class="row">
                                 <div class="col-md-6">
