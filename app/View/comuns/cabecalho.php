@@ -34,12 +34,14 @@ use Core\Library\Session;
                         <li class="nav-item">
                             <a href="#" class="nav-link">Quem Somos</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= baseUrl() ?>Livro/index" class="nav-link">Blibioteca Online</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= baseUrl() ?>Emprestimo" class="nav-link">Seus Emprestimos</a>
-                        </li>
+                        <?php if (Session::get("userId")): ?>
+                            <li class="nav-item">
+                                <a href="<?= baseUrl() ?>Livro/index" class="nav-link">Blibioteca Online</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= baseUrl() ?>Emprestimo" class="nav-link">Seus Emprestimos</a>
+                            </li>
+                         <?php endif; ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Sobre</a>
                         </li>
@@ -69,7 +71,7 @@ use Core\Library\Session;
                             </li>
                         <?php else: ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= baseUrl() ?>Login">Área restrita</a>
+                                <a class="nav-link" href="<?= baseUrl() ?>Login">Login</a>
                             </li>
                         <?php endif; ?>
                     </ul>

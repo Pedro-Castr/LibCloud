@@ -106,6 +106,18 @@ class EmprestimoModel extends ModelMain
             ->findAll();
     }
 
+    public function listaPorUsuario($usuario_id)
+    {
+        return $this->db
+            ->table("emprestimos e")
+            ->select("e.*, l.titulo AS livro_titulo")
+            ->join("livros l", "l.id = e.livro_id")
+            ->where("e.usuario_id", $usuario_id, "=")
+            ->orderBy("e.data_emprestimo", "desc")
+            ->findAll();
+    }
+
+
     public function getById($id)
     {
         return $this->db->table($this->table)->where("id", $id)->first();

@@ -6,6 +6,7 @@ use App\Model\EmprestimoModel;
 use Core\Library\ControllerMain;
 use Core\Library\Redirect;
 use Core\Library\Validator;
+use Core\Library\Session;
 
 class Emprestimo extends ControllerMain
 {
@@ -18,11 +19,22 @@ class Emprestimo extends ControllerMain
     /**
      * Lista todos os empréstimos
      */
-  public function index()
+    public function index()
     {
-        $dados = $this->model->listaCompleta(); // ✅ certo
+        $userId = Session::get("userId");
+        $userNivel = Session::get("userNivel");
+
+        if ((int)$userNivel === 1) {
+            // Admin vê todos os empréstimos
+            $dados = $this->model->listaCompleta();
+        } else {
+            // Usuário comum vê só os dele
+            $dados = $this->model->listaPorUsuario($userId);
+        }
+
         return $this->loadView("sistema/listaEmprestimo", $dados);
     }
+
 
 
     /**

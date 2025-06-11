@@ -41,9 +41,12 @@
                         <td>R$ <?= number_format($item['multa'], 2, ',', '.') ?></td>
                         <td>
                             <?php if (!$item['data_devolucao']): ?>
-                                <a href="<?= baseUrl() ?>Emprestimo/devolver/<?= $item['id'] ?>" class="btn btn-success btn-sm">
-                                    <i class="bi bi-check-circle"></i> Devolver
-                                </a>
+                                <form method="POST" action="<?= baseUrl() ?>Emprestimo/devolver" style="display: inline;">
+                                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                                    <button type="submit" class="btn btn-success btn-sm">
+                                        <i class="bi bi-check-circle"></i> Devolver
+                                    </button>
+                                </form>
                             <?php else: ?>
                                 <span class="text-muted">Finalizado</span>
                             <?php endif; ?>
