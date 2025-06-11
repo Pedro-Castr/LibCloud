@@ -6,26 +6,12 @@ CREATE TABLE livros (
     foto VARCHAR(250) NOT NULL,
     isbn VARCHAR(20) UNIQUE NOT NULL,
     editora VARCHAR(100) NOT NULL,
+    autor VARCHAR(100) NOT NULL,
     edicao VARCHAR(20) NOT NULL,
     ano_publicacao VARCHAR(4),
     numeroPatrimonio VARCHAR(10),
     estadoConservacao INT NOT NULL DEFAULT '1' COMMENT '1=Novo; 2=Semi Novo; 3= Velho',
     localizacaoEstante VARCHAR(100)
-);
-
--- Tabela de Autores
-CREATE TABLE autores (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL
-);
-
--- Relacionamento N:N entre livros e autores
-CREATE TABLE livro_autor (
-    livro_id INT,
-    autor_id INT,
-    PRIMARY KEY (livro_id, autor_id),
-    FOREIGN KEY (livro_id) REFERENCES livros(id),
-    FOREIGN KEY (autor_id) REFERENCES autores(id)
 );
 
 -- Tabela de Usuários
