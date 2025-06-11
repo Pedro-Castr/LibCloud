@@ -18,8 +18,13 @@
 </head>
 <body>
     <?php if ($erro = \Core\Library\Session::get("msgErro")): ?>
-    <div class="alert alert-danger"><?= $erro ?></div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?= $erro ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
+        <?php \Core\Library\Session::destroy("msgErro"); ?>
     <?php endif; ?>
+
     <div class="container my-5" >
         <?= formTitulo("📄 Livors") ?>
 

@@ -15,7 +15,9 @@
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
+                    <?php if ((int)Session::get("userNivel") == 1): ?>
                     <th>Usuário</th>
+                    <?php endif; ?>
                     <th>Livro</th>
                     <th>Data Empréstimo</th>
                     <th>Data Prevista</th>
@@ -27,7 +29,9 @@
             <tbody>
                 <?php foreach ($dados as $item): ?>
                     <tr>
+                        <?php if ((int)Session::get("userNivel") == 1): ?>
                         <td><?= htmlspecialchars($item['usuario_nome']) ?></td>
+                        <?php endif; ?>
                         <td><?= htmlspecialchars($item['livro_titulo']) ?></td>
                         <td><?= date('d/m/Y', strtotime($item['data_emprestimo'])) ?></td>
                         <td><?= date('d/m/Y', strtotime($item['data_prevista_devolucao'])) ?></td>
