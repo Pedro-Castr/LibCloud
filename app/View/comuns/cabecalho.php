@@ -38,6 +38,9 @@ use Core\Library\Session;
                             <a href="<?= baseUrl() ?>Livro/index" class="nav-link">Blibioteca Online</a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= baseUrl() ?>Emprestimo" class="nav-link">Seus Emprestimos</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">Sobre</a>
                         </li>
 
@@ -53,6 +56,9 @@ use Core\Library\Session;
                                         </li>
                                         <li class="nav-item">
                                             <a href="<?= baseUrl() ?>Livro" class="nav-link">Cadastrar Um Livro</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="<?= baseUrl() ?>Emprestimo" class="nav-link">Gerenciar Emprestimos</a>
                                         </li>
                                         <li><hr class="dropdown-divider"></li>
                                     <?php endif; ?>

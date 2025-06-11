@@ -1,3 +1,7 @@
+<?php
+
+    use Core\Library\Session;
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,7 +17,9 @@
     <link href="<?= baseUrl() ?>assets/css/formCurriculo.css" rel="stylesheet">
 </head>
 <body>
-
+    <?php if ($erro = \Core\Library\Session::get("msgErro")): ?>
+    <div class="alert alert-danger"><?= $erro ?></div>
+    <?php endif; ?>
     <div class="container my-5" >
         <?= formTitulo("📄 Livors") ?>
 
@@ -62,9 +68,9 @@
                     <div class="col-md-3 mb-3">
                         <label for="estadoConservacao" class="form-label">Estado de Conservação</label>
                         <select class="form-select" name="estadoConservacao" id="estadoConservacao" aria-label="Large select estadoConservacao" required>
-                            <option value="0" <?= (setValor('estadoConservacao') == "1"  ? 'selected': "") ?>>Novo</option>
-                            <option value="1" <?= (setValor('estadoConservacao') == "2" ? 'selected': "") ?>>Semi Novo</option>
-                            <option value="2" <?= (setValor('estadoConservacao') == "3" ? 'selected': "") ?>>Velho</option>
+                            <option value="1" <?= (setValor('estadoConservacao') == "1"  ? 'selected': "") ?>>Novo</option>
+                            <option value="2" <?= (setValor('estadoConservacao') == "2" ? 'selected': "") ?>>Semi Novo</option>
+                            <option value="3" <?= (setValor('estadoConservacao') == "3" ? 'selected': "") ?>>Velho</option>
                         </select>
                         <?= setMsgFilderError('estadoConservacao') ?>
                     </div>
@@ -95,11 +101,23 @@
                     </div>
 
                 </div>
+              
+
                 <div class="mt-4">
                     <?= formButton() ?>
                 </div>
 
             </form>
+              <?php if ((int)Session::get("userNivel") == 21): ?>
+                    <form method="POST" action="<?= baseUrl() ?>Emprestimo/insert" style="margin-top: 20px;">
+                        <input type="hidden" name="usuario_id" value="<?= Session::get('userId') ?>">
+                        <input type="hidden" name="livro_id" value="<?= setValor("id") ?>">
+
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-journal-arrow-up"></i> Solicitar Empréstimo
+                        </button>
+                    </form>
+                <?php endif; ?>
         </div>
     </div>
             

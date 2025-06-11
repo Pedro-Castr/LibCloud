@@ -51,6 +51,7 @@ use Core\Library\Session;
                            
                         </div>
 
+                        <?php if ((int)Session::get("userNivel") <= 20): ?>
                             <div class="mt-3 text-end">
                                 <a href="<?= baseUrl() ?>Livro/form/view/<?= $value['id'] ?>" class="btn btn-outline-primary btn-sm me-2">
                                     <i class="bi bi-eye"></i> Visualizar
@@ -62,6 +63,11 @@ use Core\Library\Session;
                                     <i class="bi bi-trash"></i> Excluir
                                 </a>
                             </div>
+                        <?php else: ?>
+                                <a href="<?= baseUrl() ?>Livro/form/view/<?= $value['id'] ?>" class="btn btn-outline-primary btn-sm me-2">
+                                    <i class="bi bi-eye"></i> Visualizar
+                                </a>
+                        <?php endif; ?>    
                         </div>
                     </div>
                 </div>
