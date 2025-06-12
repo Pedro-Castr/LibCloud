@@ -32,7 +32,7 @@ use Core\Library\Session;
                             <a class="nav-link" aria-current="page" href="<?= baseUrl() ?>">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Quem Somos</a>
+                            <a href="<?= baseUrl() ?>Pagina/exibir/sobre-nos" class="nav-link">Quem Somos</a>
                         </li>
                         <?php if (Session::get("userId")): ?>
                             <li class="nav-item">
@@ -43,7 +43,7 @@ use Core\Library\Session;
                             </li>
                          <?php endif; ?>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Sobre</a>
+                            <a href="<?= baseUrl() ?>Pagina/exibir/contato" class="nav-link">Contato</a>
                         </li>
 
                         <?php if (Session::get("userId")): ?>

@@ -1,5 +1,5 @@
 
--- Tabela de Livros
+
 CREATE TABLE livros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE livros (
     localizacaoEstante VARCHAR(100)
 );
 
--- Tabela de Usuários
+
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(250) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE usuario (
     statusRegistro INT NOT NULL DEFAULT '1' COMMENT '1=Ativo; 2=Inativo; 3=Bloqueado;'
 );
 
--- Tabela de Empréstimos
+
 CREATE TABLE emprestimos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
@@ -40,3 +40,12 @@ CREATE TABLE emprestimos (
     FOREIGN KEY (usuario_id) REFERENCES usuario(id),
     FOREIGN KEY (livro_id) REFERENCES livros(id)
 );
+
+CREATE TABLE paginas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(50) UNIQUE NOT NULL,
+    titulo VARCHAR(255) NOT NULL,
+    conteudo TEXT NOT NULL,
+    ultima_atualizacao DATETIME
+);
+

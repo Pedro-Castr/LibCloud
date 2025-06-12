@@ -13,12 +13,6 @@
                     <label for="senha" class="form-label">Senha</label>
                     <input type="password" class="form-control border-dark" id="senha" name="senha" required>
                 </div>
-                <div class="col-12 d-flex justify-content-between mt-3 mb-2">
-                    <h6><a href="<?= baseUrl() ?>Login/esqueciASenha" class="text-decoration-none">Esqueci minha senha!</a></h6>
-                    <!--
-                    <h6><a href="/Login/cadastrarLogin" class="link-secondary fw-bold">Quero criar uma conta</a></h6>
-                    -->
-                </div>
                 <div class="col-12 mb-3">
                     <?= exibeAlerta() ?>
                 </div>                        
