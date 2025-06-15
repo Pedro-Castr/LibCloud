@@ -26,7 +26,7 @@
     <?php endif; ?>
 
     <div class="container my-5" >
-        <?= formTitulo("📄 Livors") ?>
+        <?= formTitulo("📄 Livros") ?>
 
         <div class="m-2">
             <form method="POST" action="<?= $this->request->formAction() ?>" enctype="multipart/form-data">
