@@ -4,6 +4,10 @@ namespace App\Controller;
 
 use Core\Library\ControllerMain;
 use Core\Library\Redirect;
+use App\Model\PaginaModel;
+use Core\Library\Validator;
+use Core\Library\Session;
+
 
 class Pagina extends ControllerMain
 {
@@ -15,19 +19,17 @@ class Pagina extends ControllerMain
     /**
      * Exibe a página pública (como sobre-nos, contato)
      */
-    public function exibir($slug)
+     public function exibir($slug)
     {
-        $pagina = $this->model->db->table("paginas")
-            ->where("slug", $slug, "=")
-            ->select("*")
-            ->findAll();
+        $dados = $this->model->getPaginaBySlug($slug);
 
-        if (empty($pagina[0])) {
+        if (!$dados) {
             return Redirect::page("Home", "index", [], ["msgErro" => "Página não encontrada."]);
         }
 
-        return $this->loadView("sistema/pagina", ["pagina" => $pagina[0]]);
+        return $this->loadView("sistema/pagina", $dados);
     }
+
 
     /**
      * Formulário administrativo para editar página
