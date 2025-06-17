@@ -5,15 +5,7 @@
 
 <script type="text/javascript" src="<?= baseUrl(); ?>assets/js/usuario.js"></script>
 
-<div class="row bg-primary text-white m-2">
-    <div class="col-10 p-2">
-        <h3>Trocar a Senha</h3>
-    </div>
-    <div class="col-2 text-end p-2">
-        <a href="<?=  baseUrl() ?>" title="Voltar" class="btn btn-outline-info text-white">Voltar</a>
-    </div>
-</div>
-
+<?= formTitulo("Trocar Senha", false) ?>
 <?= exibeAlerta() ?>
 
 <form method="POST" action="<?= baseUrl() ?>Usuario/updateNovaSenha">
@@ -45,7 +37,7 @@
         <div class="mb-3 control-group">
             <span class="input-group-addon"><i class="fa fa-key"></i> Confirme a nova senha</span>
             <div class="controls mt-2">
-                <input name="novaSenha2" id="novaSenha2" type="password" class="form-control" placeholder="Nova senha" required="required"
+                <input name="novaSenha2" id="novaSenha2" type="password" class="form-control" required="required"
                         onkeyup="checa_segur_senha( 'novaSenha2', 'msgSenhaNova2', 'btEnviar' );">
                 <div id="msgSenhaNova2" class="mt-3"></div>
             </div>

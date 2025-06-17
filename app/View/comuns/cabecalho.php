@@ -32,15 +32,12 @@ use Core\Library\Session;
                             <a class="nav-link" aria-current="page" href="<?= baseUrl() ?>">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= baseUrl() ?>Pagina/exibir/sobre-nos" class="nav-link">Sobre Nós</a>
+                            <a href="<?= baseUrl() ?>sobre-nos" class="nav-link">Sobre Nós</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= baseUrl() ?>Pagina/exibir/contato" class="nav-link">Contato</a>
+                            <a href="<?= baseUrl() ?>Livro/index" class="nav-link">Blibioteca Online</a>
                         </li>
                         <?php if (Session::get("userId")): ?>
-                            <li class="nav-item">
-                                <a href="<?= baseUrl() ?>Livro/index" class="nav-link">Blibioteca Online</a>
-                            </li>
                             <li class="nav-item">
                                 <a href="<?= baseUrl() ?>Emprestimo" class="nav-link">Seus Emprestimos</a>
                             </li>
@@ -61,15 +58,6 @@ use Core\Library\Session;
                                         </li>
                                         <li class="nav-item">
                                             <a href="<?= baseUrl() ?>Emprestimo" class="dropdown-item">Gerenciar Emprestimos</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="dropdown-item" href="<?= baseUrl() ?>Pagina/form/sobre-nos">Editar Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="dropdown-item" href="<?= baseUrl() ?>Pagina/form/sobre-nos">Editar Sobre Nós</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="dropdown-item" href="<?= baseUrl() ?>Pagina/form/contato">Editar Contato</a>
                                         </li>
                                         <li><hr class="dropdown-divider"></li>
                                     <?php endif; ?>
