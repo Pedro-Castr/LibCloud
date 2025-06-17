@@ -44,7 +44,7 @@ use Core\Library\Session;
                             <li class="nav-item">
                                 <a href="<?= baseUrl() ?>Emprestimo" class="nav-link">Seus Emprestimos</a>
                             </li>
-                         <?php endif; ?>
+                        <?php endif; ?>
 
                         <?php if (Session::get("userId")): ?>
                             <li class="nav-item dropdown">
@@ -61,6 +61,9 @@ use Core\Library\Session;
                                         </li>
                                         <li class="nav-item">
                                             <a href="<?= baseUrl() ?>Emprestimo" class="dropdown-item">Gerenciar Emprestimos</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item" href="<?= baseUrl() ?>Pagina/form/sobre-nos">Editar Home</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="dropdown-item" href="<?= baseUrl() ?>Pagina/form/sobre-nos">Editar Sobre Nós</a>

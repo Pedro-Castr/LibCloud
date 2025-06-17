@@ -297,11 +297,14 @@ class Login extends ControllerMain
     public function criaSuperUser()
     {
         $dados = [
-            "nivel"             => 1,
-            "nome"              => "Pedro Castro",
-            "email"             => "vieiracastropedro7@gmail.com",
-            "senha"             => password_hash("fasm@2025", PASSWORD_DEFAULT),
-            "statusRegistro"    => 1
+            "nome" => "Pedro Castro",
+            "senha" => password_hash("fasm@2025", PASSWORD_DEFAULT),
+            "cpf" => "12312312345",
+            "email" => "vieiracastropedro7@gmail.com",
+            "matricula" => "123456",
+            "tipo" => 2,
+            "nivel" => 1,
+            "statusRegistro" => 1
         ];
 
         $aSuperUser = $this->model->getUserEmail($dados['email']);

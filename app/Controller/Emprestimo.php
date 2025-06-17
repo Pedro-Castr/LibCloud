@@ -95,7 +95,6 @@ class Emprestimo extends ControllerMain
             }
         }
     }
-  
 
     if ($livroDuplicado) {
     return Redirect::page("Livro/form/view/" . $post["livro_id"], ["msgErro" => "Você já possui esse livro emprestado e ainda não devolveu."]);
@@ -108,8 +107,6 @@ class Emprestimo extends ControllerMain
     // Datas
     $data_emprestimo = date('Y-m-d');
     $data_prevista = (new \DateTime())->modify("+{$prazo} days")->format('Y-m-d');
-
-
 
     // Inserção
     $insert = $this->model->db->table("emprestimos")->insert([
@@ -125,8 +122,6 @@ class Emprestimo extends ControllerMain
 
     return Redirect::page($this->controller, ["msgSucesso" => "Empréstimo registrado com sucesso!"]);
 }
-
-
 
     /**
      * Registra a devolução de um livro

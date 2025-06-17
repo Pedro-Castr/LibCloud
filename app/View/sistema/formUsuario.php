@@ -10,20 +10,19 @@
 
         <div class="mb-3 col-8">
             <label for="nome" class="form-label">Nome Completo</label>
-            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Usuário" maxlength="250" value="<?= setValor('nome') ?>" required autofocus>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Usuário" value="<?= setValor('nome') ?>" required autofocus>
             <?= setMsgFilderError('nome') ?>
         </div>
 
-        <div class="mb-3 col-8">
+        <div class="mb-3 col-4">
             <label for="cpf" class="form-label">CPF</label>
-            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF do Usuário" maxlength="250" value="<?= setValor('cpf') ?>" required autofocus>
+            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF do Usuário" value="<?= setValor('cpf') ?>" required autofocus>
             <?= setMsgFilderError('cpf') ?>
         </div>
 
         <div class="mb-3 col-4">
             <label for="nivel" class="form-label">Nível</label>
             <select class="form-select" name="nivel" id="nivel" aria-label="Large select nivel" required>
-                <option value="0"  <?= (setValor('nivel') == ""   ? 'selected': "") ?>>...</option>
                 <option value="1"  <?= (setValor('nivel') == "1"  ? 'selected': "") ?>>Super Administrador</option>
                 <option value="11" <?= (setValor('nivel') == "11" ? 'selected': "") ?>>Administrador</option>
                 <option value="21" <?= (setValor('nivel') == "21" ? 'selected': "") ?>>Usuário</option>
@@ -31,21 +30,21 @@
             <?= setMsgFilderError('tipo') ?>
         </div>
 
-        <div class="mb-3 col-8">
+        <div class="mb-3 col-4">
             <label for="email" class="form-label">Email Institucional</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email do Usuário" maxlength="150" value="<?= setValor('email') ?>" required>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email do Usuário" value="<?= setValor('email') ?>" required>
             <?= setMsgFilderError('email') ?>
         </div>
 
-        <div class="mb-3 col-8">
+        <div class="mb-3 col-4">
             <label for="curso" class="form-label">Curso ou Departamento</label>
-            <input type="curso" class="form-control" id="curso" name="curso" placeholder="curso do Usuário" maxlength="150" value="<?= setValor('curso') ?>" required>
+            <input type="curso" class="form-control" id="curso" name="curso" placeholder="Curso do Usuário" value="<?= setValor('curso') ?>" required>
             <?= setMsgFilderError('curso') ?>
         </div>
 
-        <div class="mb-3 col-8">
-            <label for="matricula" class="form-label">Matricula</label>
-            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="matricula do Usuário" maxlength="50" value="<?= setValor('matricula') ?>" required autofocus>
+        <div class="mb-3 col-4">
+            <label for="matricula" class="form-label">Matrícula</label>
+            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matrícula do Usuário" value="<?= setValor('matricula') ?>" required>
             <?= setMsgFilderError('matricula') ?>
         </div>
 
@@ -74,7 +73,7 @@
             <div class="mb-3 col-6">
                 <label for="senha" class="form-label">Senha</label>
                 <input type="password" class="form-control" id="senha" name="senha" 
-                    placeholder="Informe uma senha" maxlength="60"
+                    placeholder="Crie uma Nova Senha"
                     onkeyup="checa_segur_senha('senha', 'msgSenha', 'btEnviar');"
                     <?= ($this->request->getAction() == "insert" ? 'required' : '') ?>>
                 <div id="msgSenha" class="mt-3"></div>
@@ -84,7 +83,7 @@
             <div class="mb-3 col-6">
                 <label for="confSenha" class="form-label">Confirma a Senha</label>
                 <input type="password" class="form-control" id="confSenha" name="confSenha" 
-                    placeholder="Digite a senha para conferência" maxlength="60" 
+                    placeholder="Repita a Nova Senha"
                     onkeyup="checa_segur_senha('confSenha', 'msgConfSenha', 'btEnviar');"
                     <?= ($this->request->getAction() == "insert" ? 'required' : '') ?>>
                 <div id="msgConfSenha" class="mt-3"></div>

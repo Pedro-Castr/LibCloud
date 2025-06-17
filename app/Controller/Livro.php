@@ -48,11 +48,11 @@ class Livro extends ControllerMain
     {
         $post = $this->request->getPost();
 
-         if (Validator::make($post, $this->model->validationRules)) {
+        if (Validator::make($post, $this->model->validationRules)) {
             return Redirect::page($this->controller . "/form/insert/0");
         } else {
 
-             if (!empty($_FILES['foto']['name'])) {
+            if (!empty($_FILES['foto']['name'])) {
                 
                 // Faz upload da imagem
                 $nomeRetornado = $this->files->upload($_FILES, 'livros');
@@ -85,7 +85,7 @@ class Livro extends ControllerMain
     {
         $post = $this->request->getPost();
 
-         if (Validator::make($post, $this->model->validationRules)) {
+        if (Validator::make($post, $this->model->validationRules)) {
             return Redirect::page($this->controller . "/form/update/" . $post['id']);    // error
         } else {
 
